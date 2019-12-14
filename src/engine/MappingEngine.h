@@ -69,7 +69,7 @@ private:
 
     private:
         friend class MappingEngine;
-        Atomic<bool> capture;
+        Atomic<int> capture;
         ControllerDevice::Control control;
         MidiMessage message;
         CapturedEventSignal callback;

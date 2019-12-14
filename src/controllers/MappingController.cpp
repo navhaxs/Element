@@ -106,7 +106,7 @@ public:
 
     CriticalSection lock;
     Signal<void(const Node&, int)> callback;
-    Atomic<bool> capture        = false;
+    Atomic<int> capture        = false;
     Node node;
     GraphNodePtr object         = nullptr;
     AudioProcessor* processor   = nullptr;

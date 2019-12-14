@@ -40,11 +40,11 @@ namespace Element
             Atomic<int>    beatsPerBar;
             Atomic<int>    beatType;
             Atomic<int>    beatDivisor;
-            Atomic<double> sampleRate;
+            Atomic<float>  sampleRate;
             Atomic<float>  tempo;
-            Atomic<bool>   playing;
-            Atomic<bool>   recording;
-            Atomic<int64>  positionFrames;
+            Atomic<int>   playing;
+            Atomic<int>   recording;
+            Atomic<int32>  positionFrames;
             
             inline double getPositionSeconds() const
             {
