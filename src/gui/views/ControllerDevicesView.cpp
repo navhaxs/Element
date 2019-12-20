@@ -321,7 +321,7 @@ public:
 
     void handleAsyncUpdate() override
     {
-        if (gotFirstMessage.get() && stopOnFirstMessage.get())
+        if (gotFirstMessage.get() == 1 && stopOnFirstMessage.get() == 1)
             stopListening();
         messageReceived();
     }
@@ -335,7 +335,7 @@ public:
 private:
     void clearMessage()
     {
-        gotFirstMessage.set (false);
+        gotFirstMessage.set (0);
         ScopedLock sl (lock);
         message = MidiMessage();
     }
