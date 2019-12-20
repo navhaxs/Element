@@ -311,9 +311,9 @@ public:
 
     void handleIncomingMidiMessage (MidiInput*, const MidiMessage& msg) override
     {
-        if (gotFirstMessage.get() && stopOnFirstMessage.get()) 
+        if (gotFirstMessage.get() == 1 && stopOnFirstMessage.get() == 1) 
             return;
-        gotFirstMessage.set (true);
+        gotFirstMessage.set (1);
         ScopedLock sl (lock);
         message = msg;
         triggerAsyncUpdate();
@@ -342,8 +342,8 @@ private:
 
     CriticalSection lock;
     bool listening = false;
-    Atomic<bool> gotFirstMessage = false;
-    Atomic<bool> stopOnFirstMessage = false;
+    Atomic<int> gotFirstMessage = 0;
+    Atomic<int> stopOnFirstMessage = 0;
     MidiMessage message;
     String inputName;
 };

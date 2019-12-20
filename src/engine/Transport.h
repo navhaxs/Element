@@ -42,9 +42,9 @@ namespace Element
             Atomic<int>    beatDivisor;
             Atomic<float>  sampleRate;
             Atomic<float>  tempo;
-            Atomic<int>   playing;
-            Atomic<int>   recording;
-            Atomic<int32>  positionFrames;
+            Atomic<int>    playing;
+            Atomic<int>    recording;
+            Atomic<int>    positionFrames;
             
             inline double getPositionSeconds() const
             {
@@ -92,11 +92,11 @@ namespace Element
         inline MonitorPtr getMonitor() const { return monitor; }
         
     private:
-        AtomicValue<bool> playState, recordState;
+        AtomicValue<int> playState, recordState;
         AtomicValue<double> nextTempo;
         Atomic<int> nextBeatsPerBar, nextBeatDivisor;
         
-        Atomic<bool> seekWanted;
+        Atomic<int> seekWanted;
         AtomicValue<int64> seekFrame;
         
         MonitorPtr monitor;
