@@ -891,7 +891,7 @@ Image HorizontalListBox::createSnapshotOfSelectedRows (int& imageX, int& imageY)
         
         if (rowComp != nullptr && isRowSelected (firstRow + i))
         {
-            const Point<int> pos (getLocalPoint (rowComp, Point<int>()));
+            const juce::Point<int> pos (getLocalPoint (rowComp, juce::Point<int>()));
             const Rectangle<int> rowRect (pos.getX(), pos.getY(), rowComp->getWidth(), rowComp->getHeight());
             imageArea = imageArea.getUnion (rowRect);
         }
@@ -909,7 +909,7 @@ Image HorizontalListBox::createSnapshotOfSelectedRows (int& imageX, int& imageY)
         if (rowComp != nullptr && isRowSelected (firstRow + i))
         {
             Graphics g (snapshot);
-            g.setOrigin (getLocalPoint (rowComp, Point<int>()) - imageArea.getPosition());
+            g.setOrigin (getLocalPoint (rowComp, juce::Point<int>()) - imageArea.getPosition());
             
             if (g.reduceClipRegion (rowComp->getLocalBounds()))
             {
@@ -931,7 +931,7 @@ void HorizontalListBox::startDragAndDrop (const MouseEvent& e, const var& dragDe
         Image dragImage (createSnapshotOfSelectedRows (x, y));
         
         MouseEvent e2 (e.getEventRelativeTo (this));
-        const Point<int> p (x - e2.x, y - e2.y);
+        const juce::Point<int> p (x - e2.x, y - e2.y);
         dragContainer->startDragging (dragDescription, this, dragImage, allowDraggingToOtherWindows, &p);
     }
     else

@@ -147,7 +147,7 @@ private:
     int pinSize = 9;    
     Font font;
     
-    Point<int> originalPos;
+    juce::Point<int> originalPos;
     bool selectionMouseDownResult = false;
     bool vertical = true;
     bool dragging = false;

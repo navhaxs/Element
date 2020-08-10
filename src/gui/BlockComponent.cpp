@@ -136,7 +136,7 @@ BlockComponent::BlockComponent (const Node& graph_, const Node& node_, const boo
     nodeName = node.getPropertyAsValue (Tags::name);
     nodeName.addListener (this);
 
-    shadow.setShadowProperties (DropShadow (Colours::black.withAlpha (0.5f), 3, Point<int> (0, 1)));
+    shadow.setShadowProperties (DropShadow (Colours::black.withAlpha (0.5f), 3, juce::Point<int> (0, 1)));
     setComponentEffect (&shadow);
     
     addAndMakeVisible (configButton);
@@ -242,7 +242,7 @@ void BlockComponent::mouseDown (const MouseEvent& e)
         blockDrag = true;
     }
 
-    originalPos = localPointToGlobal (Point<int>());
+    originalPos = localPointToGlobal (juce::Point<int>());
     toFront (true);
     dragging = false;
     auto* const panel = getGraphPanel();
@@ -321,7 +321,7 @@ void BlockComponent::mouseDrag (const MouseEvent& e)
     if (e.mods.isPopupMenu() || blockDrag)
         return;
     dragging = true;
-    Point<int> pos (originalPos + Point<int> (e.getDistanceFromDragStartX(), e.getDistanceFromDragStartY()));
+    juce::Point<int> pos (originalPos + juce::Point<int> (e.getDistanceFromDragStartX(), e.getDistanceFromDragStartY()));
     
     if (getParentComponent() != nullptr)
         pos = getParentComponent()->getLocalPoint (nullptr, pos);
