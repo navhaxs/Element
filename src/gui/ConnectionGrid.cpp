@@ -710,7 +710,7 @@ namespace Element
         
     private:
         ResizeMode resizeMode = DynamicQ1;
-        int thicknessOnOtherQuads = 190;
+        int thicknessOnOtherQuads = 300;
 
         // keeps q2, q3, and q4 static
         void updateForDynamicQ1()
